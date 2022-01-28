@@ -19,7 +19,9 @@ module.exports = {
   env: {
     browser: true,
   },
-  rules: {},
+  rules: {
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+  },
   overrides: [
     // node files
     {
