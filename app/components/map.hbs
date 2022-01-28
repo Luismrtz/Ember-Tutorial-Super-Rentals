@@ -1,0 +1,18 @@
+<div class='map'>
+    {{!-- The ordering is important here! Ember applies the attributes in the order that they appear.
+     By assigning the default alt attribute first (before ...attributes is applied),
+     we are explicitly providing the invoker the option to provide a more tailored alt attribute according to their use case. --}}
+  <img
+    alt='Map image at coordinates {{@lat}},{{@lng}}'
+    ...attributes
+    {{!-- Note that we did not mark our getter as @tracked. 
+    Unlike instance variables, getters cannot be "assigned" 
+    a new value directly, so it does not make sense for Ember to monitor them for changes. --}}
+    {{!-- That being said, the values produced by getters can certainly change. 
+    In our case, the value produced by our src getter depends on the values of lat, lng, width, height and zoom from this.args.
+     Whenever these dependencies get updated, we would expect {{this.src}} from our template to be updated accordingly. --}}
+     src={{this.src}}
+    width={{@width}}
+    height={{@height}}
+  />
+</div>
