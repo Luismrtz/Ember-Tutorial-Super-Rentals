@@ -1,25 +1,26 @@
 <article class='rental'>
   <Rental::Image
-    src='https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg'
-    alt='A picture of Grand Old Mansion'
+  {{!-- // PLUG IN PASSED DATA from INDEX ROUTE/TEMPLATE --}}
+    src={{@rental.image}}
+    alt='A picture of {{@rental.title}}'
   />
   <div class='details'>
-    <h3>Grand Old Mansion</h3>
+    <h3>{{@rental.title}}</h3>
     <div class='detail owner'>
       <span>Owner:</span>
-      Veruca Salt
+      {{@rental.owner}}
     </div>
     <div class='detail type'>
       <span>Type:</span>
-      Standalone
+      {{@rental.type}}
     </div>
     <div class='detail location'>
       <span>Location:</span>
-      San Francisco
+      {{@rental.city}}
     </div>
     <div class='detail bedrooms'>
       <span>Number of bedrooms:</span>
-      15
+      {{@rental.bedrooms}}
     </div>
   </div>
 
@@ -29,13 +30,13 @@ and to acces our .js GETTER from our map.hbs file, we just call it with 'gettern
 
   <Map
   {{!-- ex. of information for assigned arguments callable within component and USED WITHIN HTML ATTRIBUTES and function(by calling as this.args)  --}}
-    @lat="37.7749"
-    @lng="-122.4194"
+    @lat={{@rental.location.lat}}
+    @lng={{@rental.location.lng}}
     @zoom="9"
     @width="150"
     @height="150"
     {{!-- ex. of html attributes callable within component  --}}
-    alt="A map of Grand Old Mansion"
+    alt="A map of {{@rental.title}}"
 
   />
 </article>
