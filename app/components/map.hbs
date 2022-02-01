@@ -3,6 +3,9 @@
      By assigning the default alt attribute first (before ...attributes is applied),
      we are explicitly providing the invoker the option to provide a more tailored alt attribute according to their use case. --}}
   <img
+  {{!-- having before means this is allowed to be overwritten? (when info for 'alt' is passed down from a child, 
+  EMBER will capture the changes via ..attributes and override default )  --}}
+     {{!-- having after means this is not allowed to be overwritten? and calling from child will NOT be able to change DEFAULT? --}}
     alt='Map image at coordinates {{@lat}},{{@lng}}'
     ...attributes
     {{!-- Note that we did not mark our getter as @tracked. 
@@ -11,7 +14,18 @@
     {{!-- That being said, the values produced by getters can certainly change. 
     In our case, the value produced by our src getter depends on the values of lat, lng, width, height and zoom from this.args.
      Whenever these dependencies get updated, we would expect {{this.src}} from our template to be updated accordingly. --}}
+     
+ 
+
+
+     {{!-- also getters use 'this.src?' to access compoennt arguments from JS CODE: getters do not @tracked, becaue they are NOT instance variables --}}
+     {{!-- THAT being said, values WITHIN a getter CERTAINLY CAN CHANGE: so {{this.src}} will STILL WATCH ITSELF for any changes inside itself (ex. has this.token inside it) and update accordingly --}}
+      {{!-- P.S 'src=' IS an ATTRIBUTE for <img /> tag|| this.src only passes in the RETURNED data  --}}
      src={{this.src}}
+
+     {{!-- @width is a dynamic argument .. example remember parameters vs arguemnts in react.  but just making them dynamic/reusable  --}}
+     {{!-- BUT 'width & height' are DEFINTELY HTML ATTRIBUTES for <img />tag --}}
+     {{!-- THUS ...attributes APPLIES TO THESE  --}}
     width={{@width}}
     height={{@height}}
   />
