@@ -7,8 +7,12 @@
 
 <div class="rentals">
   <ul class="results">
-    <li><Rental /></li>
-    <li><Rental /></li>
-    <li><Rental /></li>
+    {{!-- Passing in the FULl on-page-load data/(soon to be fetch) to this component  --}}
+    {{!-- <li><Rental @rental={{@model}} /></li> --}}
+    {{!-- <li><Rental @rental={{@model}} /></li> --}}
+
+    {{#each @model as |rental|}}
+    <li><Rental @rental={{rental}} /></li>
+    {{/each}}
   </ul>
 </div>
