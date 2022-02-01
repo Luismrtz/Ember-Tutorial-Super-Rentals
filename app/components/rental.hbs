@@ -22,4 +22,20 @@
       15
     </div>
   </div>
+
+{{!-- CALLING MAP HBS within a DIFFERENT COMPONENT and passing down information for assigned/required ARGUMENTS? (NOT RESTRICTED I think..so can have dead arguments?), ACCESSIBLE WITHIN .hbs AND .js
+, but '{desctructured} = this.arg' is required to accessess within a GETTER via .js,
+and to acces our .js GETTER from our map.hbs file, we just call it with 'gettername={{this.gettername}}  --}}
+
+  <Map
+  {{!-- ex. of information for assigned arguments callable within component and USED WITHIN HTML ATTRIBUTES and function(by calling as this.args)  --}}
+    @lat="37.7749"
+    @lng="-122.4194"
+    @zoom="9"
+    @width="150"
+    @height="150"
+    {{!-- ex. of html attributes callable within component  --}}
+    alt="A map of Grand Old Mansion"
+
+  />
 </article>
