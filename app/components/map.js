@@ -20,3 +20,5 @@ export default class MapComponent extends Component {
     return encodeURIComponent(ENV.MAPBOX_ACCESS_TOKEN);
   }
 }
+
+///TEST TEST TEST ARE YOU HERE??

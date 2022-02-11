@@ -1,18 +1,7 @@
-
 <Jumbo>
-  <h2>Welcome to Super Rentals!</h2>
+  <h2>Welcome to Super Rentals! TEST TEST ARE YOU HERE</h2>
   <p>We hope you find exactly what you're looking for in a place to stay.</p>
-  <LinkTo @route="about" class="button">About Us</LinkTo>
+  <LinkTo @route='about' class='button'>About Us</LinkTo>
 </Jumbo>
 
-<div class="rentals">
-  <ul class="results">
-    {{!-- Passing in the FULl on-page-load data/(soon to be fetch) to this component  --}}
-    {{!-- <li><Rental @rental={{@model}} /></li> --}}
-    {{!-- <li><Rental @rental={{@model}} /></li> --}}
-
-    {{#each @model as |rental|}}
-    <li><Rental @rental={{rental}} /></li>
-    {{/each}}
-  </ul>
-</div>
+<Rentals @rentals={{@model}} />
